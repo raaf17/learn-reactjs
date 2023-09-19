@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import NavigationBar from './components/NavigationBar';
 
 function App() {
+  const [getNavbarValue, setNavbarValue] = useState("")
+  const changeNavbarValue = () => {
+    setNavbarValue("My Contact");
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavigationBar navValue={getNavbarValue}/>
+      <h1 className="title">Ini Homepage</h1>
+      <button onClick={() => changeNavbarValue()}>Ubah Navigasi</button>
     </div>
   );
 }
